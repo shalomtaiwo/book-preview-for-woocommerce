@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=MVUL7FZ88ARHJ
 Requires at least: 5.8.2
 Tested up to: 5.9.1
 Requires PHP: 5.7
-Stable tag: 1.0.0
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,10 +57,10 @@ This plugin has been tested to avoid as much conflict with themes and other plug
 4. Popup with sidebar
 
 == Changelog ==
-= 1.1 : January 6, 2022 =
-* First test of Book preview for WooCommerce
+= 1.0 : January 6, 2022 =
+* First Update, Book preview for WooCommerce
 
 
 == Upgrade Notice ==
 = 1.0 =
-This is the first live test of Book Preview for WooCommerce
+This is the first live update of Book Preview for WooCommerce
