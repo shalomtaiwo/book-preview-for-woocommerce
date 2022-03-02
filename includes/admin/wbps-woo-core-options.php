@@ -37,7 +37,7 @@ woocommerce_wp_text_input(
 <style>
   div.wbps_accordion{width:100%;background-color:#f5f5f5;border:none;outline:0;text-align:left;padding:15px 20px;font-size:18px;color:#333;cursor:pointer;transition:background-color .2s linear}div.wbps_accordion:after{font-family:FontAwesome;font-family:fontawesome;font-size:18px;float:right}div.wbps_accordion.wbps_is-open,div.wbps_accordion:hover{background-color:#ddd}.wbps_accordion-content{background-color:#fff;border-left:1px solid #f5f5f5;border-right:1px solid #f5f5f5;padding:0 20px;max-height:0;overflow:hidden;transition:max-height .2s ease-in-out}
 </style>
-<p style="color: black; background-color: #bfe7f5; padding: 5px; width: 70px;"><a href="http://wpbpreview.com#support" target="_blank" style="text-decoration: none; color: black;">Need Help?</a></p>
+<p style="color: black; background-color: #bfe7f5; padding: 5px; width: 70px;"><a href="https://shalomt.com/plugins/wpbookpreview/contact/" target="_blank" style="text-decoration: none; color: black;">Need Help?</a></p>
 <div class="wbps_accordion">Text Editor</div>
   <div class="wbps_accordion-content">
   <div id="wb_tab_wbps_txteditor" class="wbps_tab_content">
@@ -136,7 +136,7 @@ woocommerce_wp_textarea_input(
                     menubar: 'file edit view',
                     plugins: ['lists link image', 'fullscreen','media'],
                   
-                    toolbar1: 'fontselect | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | insertfile link image media',
+                    toolbar1: 'fontselect | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
                     image_title: false,
                     automatic_uploads: true,
                     file_picker_types: 'image file ',

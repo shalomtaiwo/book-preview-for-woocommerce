@@ -57,7 +57,7 @@ This plugin has been tested to avoid as much conflict with themes and other plug
 4. Popup with sidebar
 
 == Changelog ==
-= 1.0 : March 2nd, 2022 =
+= 1.0 : March 3rd, 2022 =
 * First Update, Book preview for WooCommerce
 
 
