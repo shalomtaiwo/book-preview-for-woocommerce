@@ -57,6 +57,11 @@ This plugin has been tested to avoid as much conflict with themes and other plug
 4. Popup with sidebar
 
 == Changelog ==
+
+== Changelog ==
+= 1.0.1 : March 7th, 2022 =
+* Bug fix (Preview button width)
+
 = 1.0 : March 3rd, 2022 =
 * First Update, Book preview for WooCommerce
 
