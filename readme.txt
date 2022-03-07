@@ -25,7 +25,7 @@ FEATURES
 == Installation ==
 1. Go to `Plugins` in the Admin menu
 2. Click on the button `Add new`
-3. Search for `Woocommerce Book preview` and click \'Install Now\' or click on the `upload` link to upload `wpbpreview.zip`
+3. Search for `Woocommerce Book preview` and click \'Install Now\' or click on the `upload` link to upload `book-preview-for-woocommerce.zip`
 4. Click on `Activate plugin`
 
 == Frequently Asked Questions ==
