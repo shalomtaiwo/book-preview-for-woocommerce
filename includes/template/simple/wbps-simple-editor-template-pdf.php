@@ -17,29 +17,27 @@ if ( ! defined( 'WPINC' ) ) {die;} // end if
             </div>
             <div class="modal-body">
                 <?php
-                if ((!empty(esc_url($wbps_preview_pdf_link))) || !(esc_url($wbps_preview_pdf_link))) {
-                    wbps_get_pdf_link();}
-                else{
-                        echo esc_html("PDF Link is Empty/Not valid");
-                    }
-
-                function wbps_get_pdf_link(){ ?>
-            <div style="height:inherit; width: 100%; top:0;">
-                    <object
-                        class="wbps_pdf_output"
-                        style="min-height:80vh;width:100%;"
-                        type="application/pdf"
-                        data="<?php echo esc_url($wbps_preview_pdf_link) ?>?#scrollbar=0&toolbar=0&navpanes=0">
-                        <iframe
-                            src="<?php echo esc_url($wbps_preview_pdf_link) ?>?#scrollbar=0&toolbar=0&navpanes=0"
-                            style="min-height:80vh;width:100%;">
-                            <div>
-                                <?php echo html_entity_decode($wbps_preview_pdf_browser_preview)?>
-                            </div>
-                        </iframe>
-                    </object>
-                </div>
-    <?php }?>
+ if ((!empty($wbps_preview_pdf_link))) {
+    ?>
+<div style="height:inherit; width: 100%; top:0;">
+    <object
+        class="wbps_pdf_output"
+        style="min-height:80vh;width:100%;"
+        type="application/pdf"
+        data="<?php echo esc_url($wbps_preview_pdf_link) ?>?#scrollbar=0&toolbar=0&navpanes=0">
+        <iframe
+            src="<?php echo esc_url($wbps_preview_pdf_link) ?>?#scrollbar=0&toolbar=0&navpanes=0"
+            style="min-height:80vh;width:100%;">
+            <div>
+                <?php echo html_entity_decode($wbps_preview_pdf_browser_preview)?>
+            </div>
+        </iframe>
+    </object>
+</div>
+<?php }
+else{
+        echo esc_html("PDF Link is Empty/Not valid");
+    } ?>
             </div>
             <div class="modal-footer">
                 <div><b>Published: </b> <?php if (!empty(esc_html($wbps_preview_woo_year))) {
