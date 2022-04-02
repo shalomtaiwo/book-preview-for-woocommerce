@@ -35,7 +35,6 @@ function wbps_preview_front_settings_all_settings() {
 				'placeholder' => 'Choose',
 				'options'     => array(
 					'wbps_simple_template' => __('Simple Popup', 'wpbpreview' ),
-					'wbps_sidebar_template'       => __('Popup with Sidebar', 'wpbpreview' ),
 			  ),
 				'desc' => __( 'Choose preferred popup template', 'wpbpreview' ),
 				'id' => 'wbps_popup_front_selection'
@@ -58,20 +57,6 @@ function wbps_preview_front_settings_all_settings() {
 			'wbps_button_txt' => array(
 				'name'     => __( 'Button Text Color', 'wpbpreview' ),
 				'id'       => 'wbps_preview_front_settings_text_color',
-				'type'     => 'color',
-				'placeholder' => 'e.g #fcfcfc',
-				'desc'     => __( '', 'wpbpreview' )
-			),
-			'wbps_close_bg' => array(
-				'name'     => __( 'Close bar Background Color', 'wpbpreview' ),
-				'id'       => 'wbps_preview_close_settings_background_color',
-				'type'     => 'color',
-				'placeholder' => 'e.g #ad2323',
-				'desc'     => __( '', 'wpbpreview' )
-			),
-			'wbps_close_txt' => array(
-				'name'     => __( 'Close button Text Color', 'wpbpreview' ),
-				'id'       => 'wbps_preview_close_settings_text_color',
 				'type'     => 'color',
 				'placeholder' => 'e.g #fcfcfc',
 				'desc'     => __( '', 'wpbpreview' )

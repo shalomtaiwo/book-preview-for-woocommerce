@@ -18,7 +18,7 @@ define('WBPS_CORE_JS',plugins_url( 'assets/js/', __FILE__ ));
 *
 */
 function wbps_register_core_css(){
-wp_enqueue_style('wbps-core', WBPS_CORE_CSS . 'wbps-core.css',null,time(),'all');
+wp_enqueue_style('bootstrap', WBPS_CORE_CSS . 'bootstrap.min.css',null,time(),'all');
 };
 add_action( 'wp_enqueue_scripts', 'wbps_register_core_css' );  
 /*
@@ -28,7 +28,7 @@ add_action( 'wp_enqueue_scripts', 'wbps_register_core_css' );
 */
 function wbps_register_core_js(){
 // Register Core Plugin JS	
-wp_enqueue_script('wbps-core', WBPS_CORE_JS . 'wbps-core.js','jquery',time(),true);
+wp_enqueue_script('wbps-core', WBPS_CORE_JS . 'bootstrap.bundle.min.js','jquery',time(),true);
 };
 add_action( 'wp_enqueue_scripts', 'wbps_register_core_js' );    
 /*

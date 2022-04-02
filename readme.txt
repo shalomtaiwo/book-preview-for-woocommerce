@@ -3,9 +3,9 @@ Contributors: shalomt
 Tags: woocommerce,books,book,ebook,book preview,previews,ebook previews,ecommerce preview,author,publisher
 Donate link: https://www.paypal.com/donate/?hosted_button_id=MVUL7FZ88ARHJ
 Requires at least: 5.8.2
-Tested up to: 5.9.1
+Tested up to: 5.9.2
 Requires PHP: 5.7
-Stable tag: 1.0
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,7 +25,7 @@ FEATURES
 == Installation ==
 1. Go to `Plugins` in the Admin menu
 2. Click on the button `Add new`
-3. Search for `Woocommerce Book preview` and click \'Install Now\' or click on the `upload` link to upload `wpbpreview.zip`
+3. Search for `Woocommerce Book preview` and click \'Install Now\' or click on the `upload` link to upload `book-preview-for-woocommerce.zip`
 4. Click on `Activate plugin`
 
 == Frequently Asked Questions ==
@@ -54,9 +54,25 @@ This plugin has been tested to avoid as much conflict with themes and other plug
 1. Product view
 2. Settings Page
 3. Preview simple popup
-4. Popup with sidebar
+4. Mobile popup
+
 
 == Changelog ==
+
+= 2.0.2 =
+* Blank PDF fix
+
+= 2.0.1 =
+* Popup z-index fixed
+
+= 2.0 : April 2nd, 2022 =
+* Remove Sidebar Popup
+* Remove Sidebar settings
+* Simple popup CSS fix
+
+= 1.0.1 : March 7th, 2022 =
+* Bug fix (Preview button width)
+
 = 1.0 : March 3rd, 2022 =
 * First Update, Book preview for WooCommerce
 
