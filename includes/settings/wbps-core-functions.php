@@ -87,7 +87,7 @@ function wbps_user_preview_simple(){
     $wbps_preview_pdf_link = $product->get_meta('wbps-preview-pdf-content');
     $wbps_preview_pdf_browser_preview = $product->get_meta('wbps-preview-pdf-content-alt');
     $empty_value_opt = $product->get_meta('wbps_preview_select_option');
-
+    if (is_product()){
     if ($empty_value_opt == 'wbps_txteditor')
     {
         front_wbps_button_simple();
@@ -108,12 +108,13 @@ function wbps_user_preview_simple(){
         </style>
         <?php
 }
+    }
 }
 
 function front_wbps_button_simple()
 {
 ?><button style="background-color:<?php echo esc_attr(get_option("wbps_preview_front_settings_background_color")) ?>;
-color:<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>; width: fit-content;" id="wbps_popup_btnsimple" class="wbps_popup_btn cursor-pointer mb-2 px-1 py-2 px-1 rounded" data-bs-toggle="modal" data-bs-target="#wbps_simple_popup">
+color:<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>; width: fit-content;" id="wbps_popup_btnsimple" class="wbps_popup_btn cursor-pointer mb-2 px-1 py-2 px-1 rounded border-0" data-bs-toggle="modal" data-bs-target="#wbps_simple_popup">
     <span><?php echo esc_html(get_option("wbps_preview_front_settings_title"))?></span><svg width="25px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250"><rect width="25" height="25" fill="none"/>
         <path class="show_wbps_icon_fill" fill="<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>" stroke="<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" d="M228.14833,121.17381,84.1717,33.18517A8,8,0,0,0,72,40.01136V215.98864a8,8,0,0,0,12.1717,6.82619l143.97663-87.98864A8,8,0,0,0,228.14833,121.17381Z"/></svg>
 </button>
@@ -129,7 +130,7 @@ function front_wbps_button_simple_pdf()
 {
 ?>
 <button style="background-color:<?php echo esc_attr(get_option("wbps_preview_front_settings_background_color")) ?>;
-color:<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>; width: fit-content;" id="wbps_popup_btnsimple_pdf" class="wbps_popup_btn cursor-pointer mb-2 px-1 py-2 px-1 rounded" data-bs-toggle="modal" data-bs-target="#wbps_simple_popup_pdf">
+color:<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>; width: fit-content;" id="wbps_popup_btnsimple_pdf" class="wbps_popup_btn cursor-pointer mb-2 px-1 py-2 px-1 rounded border-0" data-bs-toggle="modal" data-bs-target="#wbps_simple_popup_pdf">
 <span><?php echo esc_html(get_option("wbps_preview_front_settings_title"))?> </span>
 <svg width="25px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250"><rect width="25" height="25" fill="none"/>
 <path class="show_wbps_icon_fill" fill="<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>" stroke="<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" d="M228.14833,121.17381,84.1717,33.18517A8,8,0,0,0,72,40.01136V215.98864a8,8,0,0,0,12.1717,6.82619l143.97663-87.98864A8,8,0,0,0,228.14833,121.17381Z"/></svg>

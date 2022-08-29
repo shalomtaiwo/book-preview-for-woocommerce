@@ -41,7 +41,8 @@ woocommerce_wp_text_input(
 <div class="wbps_accordion">Text Editor</div>
   <div class="wbps_accordion-content">
   <div id="wb_tab_wbps_txteditor" class="wbps_tab_content">
-  <p style="text-align: center; color: black; background-color: #bfe7f5; padding: 10px;">You could click "View" and Choose FullScreen for a better mode. Click it again to leave Fullscreen mode</p>
+  <p style="text-align: center; color: black; background-color: #bfe7f5; padding: 10px;">You could click "View" and Choose FullScreen for a better mode. Click it again to leave Fullscreen mode 
+</p>
 
 <?php
 
@@ -103,68 +104,18 @@ woocommerce_wp_textarea_input(
   <div class="wbps_accordion">PDF Preview</div>
   <div class="wbps_accordion-content">
   <div id="wb_tab_wbps_opt_pdf" class="wbps_tab_content">
-    <p style="text-align: center; color: black; background-color: #bfe7f5; padding: 10px;">Make sure link is correct! (localhosted sites' link doesn't count)</p>
+    <p style="text-align: center; color: black; background-color: #bfe7f5; padding: 10px;">Make sure link is correct! (Only links from current website are permitted)
+  <br> It's advisable to keep PDF file sizes less than 5MB for a faster response.
+</p>
   <?php
 woocommerce_wp_text_input(
   array(
     'id'          => 'wbps-preview-pdf-content',
     'label'         => __('Add pdf link','wpbpreview'),
     'placeholder'       => __('PDF file Link','wpbpreview'),
+    'description' => __( 'Add pdf to site and copy link', 'wpbpreview' ),
   )
 );?>
-
-<div>
-  <p style="text-align: center; color: black; background-color: #bfe7f5; padding: 10px;">Add Alternate Preview For Unsupported Browsers</p>
-</div>
-<?php
-woocommerce_wp_textarea_input(
-  array(
-    'id'          => 'wbps-preview-pdf-content-alt',
-    'label'         => __('Alternate preview','wpbpreview'),
-  )
-);
-  ?>
-  <script type="text/javascript">
-                    
-                    jQuery(document).ready(function() {
-    
-                    if ( typeof( tinyMCE ) == "object") {
-                    tinyMCE.init({
-                    selector: '#wbps-preview-pdf-content-alt',
-                    height: 500,
-                    branding: false,
-                    menubar: 'file edit view',
-                    plugins: ['lists link image', 'fullscreen','media'],
-                  
-                    toolbar1: 'fontselect | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
-                    image_title: false,
-                    automatic_uploads: true,
-                    file_picker_types: 'image file ',
-                    file_picker_callback: function (cb, value, meta) {
-                      var input = document.createElement('input');
-                      input.setAttribute('type', 'file');
-                      input.setAttribute('accept', 'image/*');
-                    input.onchange = function () {
-                      var file = this.files[0];
-                      var reader = new FileReader();
-                      reader.onload = function () {
-                        var id = 'blobid' + (new Date()).getTime();
-                        var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
-                        var base64 = reader.result.split(',')[1];
-                        var blobInfo = blobCache.create(id, file, base64);
-                        blobCache.add(blobInfo);
-                        cb(blobInfo.blobUri(), { title: file.name });
-                      };
-                      reader.readAsDataURL(file);
-                    };
-                    input.click();
-                  },
-                  content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-                            });
-                        }
-                        
-                    });
-    </script>
     </div>
   </div>
 </div>
@@ -176,16 +127,13 @@ woocommerce_wp_textarea_input(
       wbps_accordion.onclick = function () {
         this.classList.toggle("wbps_is-open");
     
-        let content = this.nextElementSibling;
-        console.log(content);
-    
+        let content = this.nextElementSibling;    
         if (content.style.maxHeight) {
           //this is if the wbps_accordion is open
           content.style.maxHeight = null;
         } else {
           //if the wbps_accordion is currently closed
           content.style.maxHeight = content.scrollHeight + "px";
-          console.log(content.style.maxHeight);
         }
       };
     });

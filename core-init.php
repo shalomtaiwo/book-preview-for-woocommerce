@@ -12,6 +12,7 @@ if ( ! defined( 'WPINC' ) ) {die;} // end if
 define('WBPS_CORE_CSS',plugins_url( 'assets/css/', __FILE__ ));
 define('WBPS_CORE_JS',plugins_url( 'assets/js/', __FILE__ ));
 
+
 /*
 *
 *  Register CSS
@@ -30,7 +31,7 @@ function wbps_register_core_js(){
 // Register Core Plugin JS	
 wp_enqueue_script('wbps-core', WBPS_CORE_JS . 'bootstrap.bundle.min.js','jquery',time(),true);
 };
-add_action( 'wp_enqueue_scripts', 'wbps_register_core_js' );    
+add_action( 'wp_enqueue_scripts', 'wbps_register_core_js' );
 /*
 *
 *  Includes
