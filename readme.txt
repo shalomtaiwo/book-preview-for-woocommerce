@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=MVUL7FZ88ARHJ
 Requires at least: 5.8.2
 Tested up to: 6.0
 Requires PHP: 5.7
-Stable tag: 3.0.3
+Stable tag: 3.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,10 +36,10 @@ Please check this list to see which category this issue falls under.
 *  Is this a link to a local file? Local files would only work on a self hosted site but not on a production site.
 *  Did you select PDF in the selected product? Initially each product is set to \"Do not Show\" so select the PDF option and save your Changes
 *  Is your browser compatible? Did you add an alternative text-based preview for incompatible browsers.
-Done all that and still not showing up? Please send a request on https://shalomt.com/plugins/wpbookpreview/contact for further assistance and I\'ll be happy to assist you the best I can.
+Done all that and still not showing up? Please send a request on https://wpbpreview.com/home/contact/ for further assistance and I\'ll be happy to assist you the best I can.
 
 = I am struggling to set it up =
-Please see our interactive demo here: https://shalomt.com/plugins/wpbookpreview/
+Please see our interactive demo here: https://wpbpreview.com/home/#demo
 
 = Can I submit a feature request? =
 Indeed! Please send a feature request to info@shalomt.com
@@ -49,7 +49,7 @@ Plugin is not compatible with Block Editor
 
 = Is this compatible with my theme? =
 The Book Preview plugin is compatible with a lot of themes.
-Should your theme have a compatibility issue, please send a request on https://shalomt.com/plugins/wpbookpreview/contact
+Should your theme have a compatibility issue, please send a request on https://wpbpreview.com/home/contact/
 However, some theme compatibility in most cases is as a result of a theme not following WP theme standards. And while some theme conflicts cannot be resolved, some can be resolved.
 This plugin has been tested to avoid as much conflict with themes and other plugins as much as possible.
 
@@ -61,6 +61,9 @@ This plugin has been tested to avoid as much conflict with themes and other plug
 
 
 == Changelog ==
+
+= 3.1.0 =
+* Update issue
 
 = 3.0.3 =
 * Update issue

@@ -4,23 +4,26 @@ if ( ! defined( 'WPINC' ) ) {die;} // end if
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <title></title>
-        <style>
-            canvas {
-                width: 100%;
-                height: 100%;
-            }
-        </style>
-        </head>
-        <body>
+
+<head>
+    <title></title>
+    <style>
+    canvas {
+        width: 100%;
+        height: 100%;
+    }
+    </style>
+</head>
+
+<body>
     <div class="flex-grow"><canvas id="wbpspdfviewer">
             <p>Loading... </p>
         </canvas></div>
 </body>
+
 </html>
 <?php
-define('WBPS_WORKER_PDF_JS',plugins_url( 'pdfjsBuild/build', __FILE__ ));
+if (!defined('WBPS_WORKER_PDF_JS')) define('WBPS_WORKER_PDF_JS', plugins_url( 'pdfjsBuild/build', __FILE__ ));
 ?>
 <script type="text/javascript" src="<?php echo esc_url(WBPS_WORKER_PDF_JS);?>/pdf.min.js"></script>
 <script>
@@ -41,33 +44,33 @@ let pdfDoc = null,
  */
 
 function renderPage(num) {
-  pageRendering = true; // Using promise to fetch the page
+    pageRendering = true; // Using promise to fetch the page
 
-  pdfDoc.getPage(num).then(function (page) {
-    const viewport = page.getViewport({
-      scale
-    });
-    canvas.height = viewport.height;
-    canvas.width = viewport.width; // Render PDF page into canvas context
+    pdfDoc.getPage(num).then(function(page) {
+        const viewport = page.getViewport({
+            scale
+        });
+        canvas.height = viewport.height;
+        canvas.width = viewport.width; // Render PDF page into canvas context
 
-    var renderContext = {
-      canvasContext: ctx,
-      viewport: viewport
-    };
-    var renderTask = page.render(renderContext); // Wait for rendering to finish
+        var renderContext = {
+            canvasContext: ctx,
+            viewport: viewport
+        };
+        var renderTask = page.render(renderContext); // Wait for rendering to finish
 
-    renderTask.promise.then(function () {
-      pageRendering = false;
+        renderTask.promise.then(function() {
+            pageRendering = false;
 
-      if (pageNumPending !== null) {
-        // New page rendering is pending
-        renderPage(pageNumPending);
-        pageNumPending = null;
-      }
-    });
-  }); // Update page counters
+            if (pageNumPending !== null) {
+                // New page rendering is pending
+                renderPage(pageNumPending);
+                pageNumPending = null;
+            }
+        });
+    }); // Update page counters
 
-  document.getElementById("wbpsCurrentPage").textContent = num;
+    document.getElementById("wbpsCurrentPage").textContent = num;
 }
 /**
  * If another page rendering in progress, waits until the rendering is
@@ -76,38 +79,38 @@ function renderPage(num) {
 
 
 function queueRenderPage(num) {
-  if (pageRendering) {
-    pageNumPending = num;
-  } else {
-    renderPage(num);
-  }
+    if (pageRendering) {
+        pageNumPending = num;
+    } else {
+        renderPage(num);
+    }
 }
 /**
  * Asynchronously downloads PDF.
  */
 
 
-pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
-  pdfDoc = pdfDoc_;
-  document.getElementById("wbpsTotalPages").textContent = pdfDoc.numPages; // Initial/first page rendering
+pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+    pdfDoc = pdfDoc_;
+    document.getElementById("wbpsTotalPages").textContent = pdfDoc.numPages; // Initial/first page rendering
 
-  renderPage(pageNum || 1);
+    renderPage(pageNum || 1);
 });
 
 function onPrevPage() {
-  if (pageNum <= 1) {
-    return;
-  }
+    if (pageNum <= 1) {
+        return;
+    }
 
-  pageNum--;
-  queueRenderPage(pageNum);
+    pageNum--;
+    queueRenderPage(pageNum);
 }
 
 document.getElementById("wbpsPrev").addEventListener("click", onPrevPage);
 
 function onNextPage() {
     if (pageNum >= pdfDoc.numPages) {
-      return;
+        return;
     }
 
     pageNum++;

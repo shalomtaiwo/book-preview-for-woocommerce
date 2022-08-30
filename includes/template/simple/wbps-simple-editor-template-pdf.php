@@ -2,7 +2,7 @@
 if ( ! defined( 'WPINC' ) ) {die;} // end if
 ?>
 
-<div id="wbps_simple_popup_pdf" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+<div id="wbps_<?php echo $product -> get_id(); ?>" class="modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
         <div class="modal-content">
             <div class="modal-header">
@@ -26,7 +26,7 @@ if ( ! defined( 'WPINC' ) ) {die;} // end if
             <div class="modal-body">
                 <?php
  if ((!empty($wbps_preview_pdf_link))) {
-    include plugin_dir_path(__FILE__) . 'pdfSettings/wbpsWooPdfViewer.php';
+    require_once plugin_dir_path(__FILE__) . 'pdfSettings/wbpsWooPdfViewer.php';
  } ?>
     </div>
             <div class="modal-footer h-10 d-flex justify-content-between">
