@@ -7,8 +7,10 @@
         <input id="wbpsCopyValue" type="text" readonly/>
         <button onclick="wbpsCopyIt()" type='button' class="wbpsCopyBtn">COPY SHORTCODE</button>
     </div>
-    <div class="wbps-note-important"><b>Note: You can only display one PDF popup on a single page!</b></div>
-    <div class="wbps-note-note"><b>You can display multiple Editor popups on any page.</b></div>
+    <div class="wbps-notice">
+    <div class="wbps-note-important"><b>Note: You can only display one PDF preview on a single page!</b></div>
+    <div class="wbps-note-note"><b>You can display multiple Text previews on any page.</b></div>
+    </div>
     <script>
     let wbpsCopyBtn = document.querySelector(".wbpsCopyBtn");
     const wbpsGetPostId = document.getElementById("post_ID").value;
@@ -36,7 +38,7 @@
     }
 
     .copy-button input {
-        width: 80%;
+        width: 70%;
         height: 100%;
         border: none;
         outline: none;
@@ -44,11 +46,12 @@
     }
 
     .copy-button button {
-        width: 20%;
-        padding: 5px;
+        width: 30%;
+        padding: 6px;
         background-color: black;
         color: #fff;
         border: 1px solid transparent;
+        cursor: pointer;
     }
 
     .wbps-note-important {
@@ -60,6 +63,12 @@
         color: blue;
         padding: 5px;
     }
+    .wbps-notice{
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: center !important;
+    background: rgb(255,255,255) !important;
+}
     </style>
     <?php
 woocommerce_wp_select( 

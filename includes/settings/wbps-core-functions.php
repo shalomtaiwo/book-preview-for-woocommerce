@@ -163,7 +163,7 @@ function front_wbps_button_simple($id)
 ?><button style="background-color:<?php echo esc_attr(get_option("wbps_preview_front_settings_background_color")) ?>;
 color:<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>; width: fit-content;"
     id="wbps_popup_btnsimple <?php echo $id ?>"
-    class="wbps_popup_btn cursor-pointer mb-2 px-1 py-2 px-1 rounded border-0" data-bs-toggle="modal"
+    class="wbps_popup_btn wbps_popup_btnsimple cursor-pointer mb-2 px-1 py-2 px-1 rounded border-0" data-bs-toggle="modal"
     data-bs-target="#wbps_<?php echo $id ?>">
     <span><?php echo esc_html(get_option("wbps_preview_front_settings_title"))?></span><svg width="25px"
         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250">
@@ -189,7 +189,7 @@ function front_wbps_button_simple_pdf($id)
 <button style="background-color:<?php echo esc_attr(get_option("wbps_preview_front_settings_background_color")) ?>;
 color:<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>; width: fit-content;"
     id="wbps_popup_btnsimple_pdf <?php echo $id ?>"
-    class="wbps_popup_btn cursor-pointer mb-2 px-1 py-2 px-1 rounded border-0" data-bs-toggle="modal"
+    class="wbps_popup_btn cursor-pointer wbps_popup_btnsimple_pdf mb-2 px-1 py-2 px-1 rounded border-0" data-bs-toggle="modal"
     data-bs-target="#wbps_<?php echo $id ?>">
     <span><?php echo esc_html(get_option("wbps_preview_front_settings_title"))?> </span>
     <svg width="25px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250">
