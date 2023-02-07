@@ -10,10 +10,10 @@ if (!defined('WPINC')) {
 <head>
     <title></title>
     <style>
-        canvas {
-            width: 100%;
-            height: 100%;
-        }
+    canvas {
+        width: 100%;
+        height: 100%;
+    }
     </style>
 </head>
 
@@ -26,99 +26,124 @@ if (!defined('WPINC')) {
 </html>
 <?php
 if (!defined('WBPS_WORKER_PDF_JS')) define('WBPS_WORKER_PDF_JS', plugins_url('pdfjsBuild/build', __FILE__));
+
+$data = file_get_contents($wbps_preview_pdf_link);
+$b64image = 'data:text/' . ';base64,' . base64_encode($data);
+
 ?>
+<script>
+var BASE64_MARKER = ';base64,';
+
+function convertDataURIToBinary(dataURI) {
+    var base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length;
+    var base64 = dataURI.substring(base64Index);
+    var raw = window.atob(base64);
+    var rawLength = raw.length;
+    var array = new Uint8Array(new ArrayBuffer(rawLength));
+
+    for (var i = 0; i < rawLength; i++) {
+        array[i] = raw.charCodeAt(i);
+    }
+    return array;
+}
+</script>
 <script type="text/javascript" src="<?php echo esc_url(WBPS_WORKER_PDF_JS); ?>/pdf.min.js"></script>
 <script>
-    const url = "<?php echo esc_url($wbps_preview_pdf_link) ?>";
-    const pdfjsLib = window["pdfjs-dist/build/pdf"];
+const url = convertDataURIToBinary("<?php echo esc_attr($b64image) ?>");
+const pdfjsLib = window["pdfjs-dist/build/pdf"];
 
-    pdfjsLib.GlobalWorkerOptions.workerSrc = "<?php echo esc_url(WBPS_WORKER_PDF_JS); ?>/pdf.worker.min.js";
-    let pdfDoc = null,
-        pageNum = 1,
-        pageRendering = false,
-        pageNumPending = null,
-        scale = 3,
-        canvas = document.getElementById("wbpspdfviewer"),
-        ctx = canvas.getContext("2d");
-    /**
-     * Get page info from document, resize canvas accordingly, and render page.
-     * @param num Page number.
-     */
+pdfjsLib.GlobalWorkerOptions.workerSrc = "<?php echo esc_url(WBPS_WORKER_PDF_JS); ?>/pdf.worker.min.js";
+let pdfDoc = null,
+    pageNum = 1,
+    pageRendering = false,
+    pageNumPending = null,
+    scale = 3,
+    canvas = document.getElementById("wbpspdfviewer"),
+    ctx = canvas.getContext("2d");
+/**
+ * Get page info from document, resize canvas accordingly, and render page.
+ * @param num Page number.
+ */
 
-    function renderPage(num) {
-        pageRendering = true; // Using promise to fetch the page
+function renderPage(num) {
+    pageRendering = true; // Using promise to fetch the page
 
-        pdfDoc.getPage(num).then(function(page) {
-            const viewport = page.getViewport({
-                scale
-            });
-            canvas.height = viewport.height;
-            canvas.style.width = "100%";
-            canvas.width = viewport.width; // Render PDF page into canvas context
+    pdfDoc.getPage(num).then(function(page) {
+        const viewport = page.getViewport({
+            scale
+        });
+        canvas.height = viewport.height;
+        canvas.style.width = "100%";
+        canvas.width = viewport.width; // Render PDF page into canvas context
 
-            var renderContext = {
-                canvasContext: ctx,
-                viewport: viewport
-            };
-            var renderTask = page.render(renderContext); // Wait for rendering to finish
+        var renderContext = {
+            canvasContext: ctx,
+            viewport: viewport
+        };
+        var renderTask = page.render(renderContext); // Wait for rendering to finish
 
-            renderTask.promise.then(function() {
-                pageRendering = false;
+        renderTask.promise.then(function() {
+            pageRendering = false;
 
-                if (pageNumPending !== null) {
-                    // New page rendering is pending
-                    renderPage(pageNumPending);
-                    pageNumPending = null;
-                }
-            });
-        }); // Update page counters
+            if (pageNumPending !== null) {
+                // New page rendering is pending
+                renderPage(pageNumPending);
+                pageNumPending = null;
+            }
+        });
+    }); // Update page counters
 
-        document.getElementById("wbpsCurrentPage").textContent = num;
+    document.getElementById("wbpsCurrentPage").textContent = num;
+}
+/**
+ * If another page rendering in progress, waits until the rendering is
+ * finised. Otherwise, executes rendering immediately.
+ */
+
+
+function queueRenderPage(num) {
+    if (pageRendering) {
+        pageNumPending = num;
+    } else {
+        renderPage(num);
     }
-    /**
-     * If another page rendering in progress, waits until the rendering is
-     * finised. Otherwise, executes rendering immediately.
-     */
+}
+/**
+ * Asynchronously downloads PDF.
+ */
 
 
-    function queueRenderPage(num) {
-        if (pageRendering) {
-            pageNumPending = num;
-        } else {
-            renderPage(num);
-        }
+pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
+    pdfDoc = pdfDoc_;
+    document.getElementById("wbpsTotalPages").textContent = pdfDoc.numPages; // Initial/first page rendering
+
+    renderPage(pageNum || 1);
+});
+
+
+function onPrevPage() {
+    if (pageNum <= 1) {
+        document.getElementById("wbpsPrev").style.cursor = 'not-allowed';
+        return;
     }
-    /**
-     * Asynchronously downloads PDF.
-     */
+    pageNum--;
+    document.getElementById("wbpsNext").style.cursor = 'pointer';
+    queueRenderPage(pageNum);
+}
+
+document.getElementById("wbpsPrev").addEventListener("click", onPrevPage);
 
 
-    pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-        pdfDoc = pdfDoc_;
-        document.getElementById("wbpsTotalPages").textContent = pdfDoc.numPages; // Initial/first page rendering
-
-        renderPage(pageNum || 1);
-    });
-
-    function onPrevPage() {
-        if (pageNum <= 1) {
-            return;
-        }
-
-        pageNum--;
-        queueRenderPage(pageNum);
+function onNextPage() {
+    if (pageNum >= pdfDoc.numPages) {
+    return;
     }
 
-    document.getElementById("wbpsPrev").addEventListener("click", onPrevPage);
+    pageNum++;
+    document.getElementById("wbpsPrev").style.cursor = 'pointer';
+    document.getElementById("wbpsNext").style.cursor = 'pointer';
+    queueRenderPage(pageNum);
+}
 
-    function onNextPage() {
-        if (pageNum >= pdfDoc.numPages) {
-            return;
-        }
-
-        pageNum++;
-        queueRenderPage(pageNum);
-    }
-
-    document.getElementById("wbpsNext").addEventListener("click", onNextPage);
+document.getElementById("wbpsNext").addEventListener("click", onNextPage);
 </script>

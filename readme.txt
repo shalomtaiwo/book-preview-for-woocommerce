@@ -3,7 +3,7 @@ Contributors: shalomt
 Tags: woocommerce,books,book,ebook,book preview,previews,ebook previews,ecommerce preview,author,publisher
 Donate link: https://www.paypal.com/donate/?hosted_button_id=MVUL7FZ88ARHJ
 Requires at least: 5.8.2
-Tested up to: 6.0
+Tested up to: 6.1.1
 Requires PHP: 5.7
 Stable tag: 3.1.0
 License: GPLv2 or later
@@ -33,16 +33,18 @@ FEATURES
 Please check this list to see which category this issue falls under.
 
 *  Do you have the correct link? If your site starts with https, your file must also being with https
+*  Is the PDF file located on your current website? PDF file must be hosted on your current website.
 *  Is this a link to a local file? Local files would only work on a self hosted site but not on a production site.
 *  Did you select PDF in the selected product? Initially each product is set to \"Do not Show\" so select the PDF option and save your Changes
 *  Is your browser compatible? Did you add an alternative text-based preview for incompatible browsers.
+
 Done all that and still not showing up? Please send a request on https://wpbpreview.com/home/contact/ for further assistance and I\'ll be happy to assist you the best I can.
 
 = I am struggling to set it up =
 Please see our interactive demo here: https://wpbpreview.com/home/#demo
 
 = Can I submit a feature request? =
-Indeed! Please send a feature request to info@shalomt.com
+Indeed! Please submit a feature request here: https://wpbpreview.com/home/contact/
 
 = What about Page editor compatibility? =
 Plugin is not compatible with Block Editor
@@ -63,7 +65,10 @@ This plugin has been tested to avoid as much conflict with themes and other plug
 == Changelog ==
 
 = 3.1.0 =
-* Update issue
+* Fix PDF preview Quality
+* Add Shortcode for PDF - One PDF shortcode on a page allowed
+* Add Shortcode for Text Editor - Multiple Text Editor Shortcodes allowed
+* Change Support links
 
 = 3.0.3 =
 * Update issue
