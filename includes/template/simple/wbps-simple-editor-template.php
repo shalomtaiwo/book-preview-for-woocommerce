@@ -14,9 +14,9 @@ if (!defined('WPINC')) {
                 <div id="textModalLabel" class="wbps-modal-title" style="font-size: 18px; font-weight: 500;">
                     <?php
                     $wbps_string = $product->get_title();
-                    // Trimming length of string
-                    $new_wbps_string = mb_strimwidth($wbps_string, 0, 20, "...");
-                    echo esc_html($new_wbps_string); ?>
+// Trimming length of string
+$new_wbps_string = mb_strimwidth($wbps_string, 0, 20, "...");
+echo esc_html($new_wbps_string); ?>
                 </div>
                 <div class="wbps-modal-nav">
                     <div class="collapse-container">
@@ -55,7 +55,7 @@ if (!defined('WPINC')) {
                 } else {
                     echo esc_html("Preview content for this product is currently empty. Add some content!");
                 }
-                ?>
+?>
             </div>
         </div>
 

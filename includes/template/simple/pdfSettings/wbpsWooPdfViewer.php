@@ -25,8 +25,9 @@ if (!defined('WPINC')) {
 
 </html>
 <?php
-if (!defined('WBPS_WORKER_PDF_JS'))
+if (!defined('WBPS_WORKER_PDF_JS')) {
     define('WBPS_WORKER_PDF_JS', plugins_url('pdfjsBuild/build', __FILE__));
+}
 
 $data = file_get_contents($wbps_preview_pdf_link);
 $b64image = 'data:text/' . ';base64,' . base64_encode($data);

@@ -75,36 +75,36 @@
     <?php
     woocommerce_wp_select(
         array(
-            'id' => 'wbps_preview_select_option',
-            'label' => __('Choose option', 'wpbpreview'),
-            'name' => 'wbps_preview_select_option',
-            'options' => array(
-                '' => __('Do not Show', 'wpbpreview'),
-                'wbps_txteditor' => __('Text Editor', 'wpbpreview'),
-                'wbps_opt_pdf' => __('PDF', 'wpbpreview'),
-            ),
-            'default' => '',
-        )
+                'id' => 'wbps_preview_select_option',
+                'label' => __('Choose option', 'wpbpreview'),
+                'name' => 'wbps_preview_select_option',
+                'options' => array(
+                    '' => __('Do not Show', 'wpbpreview'),
+                    'wbps_txteditor' => __('Text Editor', 'wpbpreview'),
+                    'wbps_opt_pdf' => __('PDF', 'wpbpreview'),
+                ),
+                'default' => '',
+            )
     );
 
-    woocommerce_wp_text_input(
-        array(
-            'id' => 'wbps_preview_content_author',
-            'label' => __('Author', 'wpbpreview'),
-            'placeholder' => __('Author name', 'wpbpreview'),
-            'description' => __('E.g Book Author', 'wpbpreview'),
-        )
-    );
+woocommerce_wp_text_input(
+    array(
+        'id' => 'wbps_preview_content_author',
+        'label' => __('Author', 'wpbpreview'),
+        'placeholder' => __('Author name', 'wpbpreview'),
+        'description' => __('E.g Book Author', 'wpbpreview'),
+    )
+);
 
-    woocommerce_wp_text_input(
-        array(
-            'id' => 'wbps_preview_year_publication',
-            'label' => __('Date', 'wpbpreview'),
-            'placeholder' => __('Publication Date', 'wpbpreview'),
-            'description' => __('E.g 2nd Jan 2022.', 'wpbpreview'),
-        )
-    );
-    ?>
+woocommerce_wp_text_input(
+    array(
+        'id' => 'wbps_preview_year_publication',
+        'label' => __('Date', 'wpbpreview'),
+        'placeholder' => __('Publication Date', 'wpbpreview'),
+        'description' => __('E.g 2nd Jan 2022.', 'wpbpreview'),
+    )
+);
+?>
     <style>
         div.wbps_accordion {
             width: 100%;
@@ -153,14 +153,14 @@
 
             <?php
 
-            woocommerce_wp_textarea_input(
-                array(
-                    'id' => 'wbps-preview-text-content',
-                    'label' => __('Text content', 'wpbpreview'),
-                    'description' => __('...', 'wpbpreview'),
-                )
-            );
-            ?>
+        woocommerce_wp_textarea_input(
+            array(
+                'id' => 'wbps-preview-text-content',
+                'label' => __('Text content', 'wpbpreview'),
+                'description' => __('...', 'wpbpreview'),
+            )
+        );
+?>
             <script type="text/javascript">
                 jQuery(document).ready(function () {
 
@@ -217,15 +217,15 @@
                 <br> It's advisable to keep PDF file sizes less than 5MB for a faster response.
             </p>
             <?php
-            
-            woocommerce_wp_text_input(
-                array(
-                    'id' => 'wbps-preview-pdf-content',
-                    'label' => __('Add pdf link', 'wpbpreview'),
-                    'placeholder' => __('PDF file Link', 'wpbpreview'),
-                    'description' => __('Add pdf to site and copy link', 'wpbpreview'),
-                )
-            ); ?>
+
+woocommerce_wp_text_input(
+    array(
+        'id' => 'wbps-preview-pdf-content',
+        'label' => __('Add pdf link', 'wpbpreview'),
+        'placeholder' => __('PDF file Link', 'wpbpreview'),
+        'description' => __('Add pdf to site and copy link', 'wpbpreview'),
+    )
+); ?>
         </div>
     </div>
 </div>
