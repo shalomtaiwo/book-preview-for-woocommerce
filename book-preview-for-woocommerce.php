@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /*
 Plugin Name: Book Preview for WooCommerce
 Plugin URI: https://wpbpreview.com/home/
@@ -14,24 +15,26 @@ Text Domain: wpbpreview
 */
 
 // If this file is called directly, abort. //
-if ( ! defined( 'WPINC' ) ) {die;} // end if
+if (! defined('WPINC')) {
+    die;
+} // end if
 
 // Let's Initialize Everything
 $all_plugins = apply_filters('active_plugins', get_option('active_plugins'));
 if (stripos(implode($all_plugins), 'woocommerce.php')) {
-    if ( file_exists( plugin_dir_path( __FILE__ ) . 'core-init.php' ) ) {
-        require_once( plugin_dir_path( __FILE__ ) . 'core-init.php' );
-        }
+    if (file_exists(plugin_dir_path(__FILE__) . 'core-init.php')) {
+        require_once(plugin_dir_path(__FILE__) . 'core-init.php');
     }
+}
 
 
 register_uninstall_hook(__FILE__, 'WBPS_UNINSTALL_PLUGIN');
 
-register_activation_hook(__FILE__, function(){
-            activate_plugin('book-preview-for-woocommerce.php');
-}); 
+register_activation_hook(__FILE__, function () {
+    activate_plugin('book-preview-for-woocommerce.php');
+});
 
 // When this plugin deactivate, deactivate another plugin too.
-register_deactivation_hook(__FILE__, function(){
-            deactivate_plugins('book-preview-for-woocommerce.php');
-}); 
+register_deactivation_hook(__FILE__, function () {
+    deactivate_plugins('book-preview-for-woocommerce.php');
+});

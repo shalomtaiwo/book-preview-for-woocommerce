@@ -14,9 +14,9 @@ if (!defined('WPINC')) {
                 <div id="pdfModalLabel" class="wbps-modal-title" style="font-size: 18px; font-weight: 500;">
                     <?php
                     $wbps_string = $product->get_title();
-                    // Trimming length of string
-                    $new_wbps_string = mb_strimwidth($wbps_string, 0, 20, "...");
-                    echo esc_html($new_wbps_string); ?>
+// Trimming length of string
+$new_wbps_string = mb_strimwidth($wbps_string, 0, 20, "...");
+echo esc_html($new_wbps_string); ?>
                 </div>
                 <div class="wbps-modal-nav">
                     <nav class="nav">
@@ -49,7 +49,7 @@ if (!defined('WPINC')) {
                         echo 'Error loading pdf';
                     }
                 }
-                ?>
+?>
             </div>
             <div class="wbps-modal-footer">
                 <div class="pages text-center" style="margin: 10px;">
