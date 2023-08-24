@@ -1,0 +1,256 @@
+/**
+ * Variables
+ */
+/**
+ * Base styles
+ */
+.wbps-button {
+  position: relative;
+  border: none;
+  padding: 0.75em 1em;
+  font-size: 0.75em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+
+.wbps-button:focus {
+  outline: none;
+}
+
+/**
+ * Overlay
+ * -- only show for tablet and up
+ */
+@media only screen and (min-width: 40em) {
+  .wbps-modal-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999999;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    backface-visibility: hidden;
+    transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), visibility 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  }
+
+  .wbps-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.wbps-last-page {
+  background-color: rgba(252, 252, 229, 0.973);
+  border-color: rgb(180, 180, 73);
+  color: rgb(63, 63, 57);
+  display: block;
+  padding: 10px;
+}
+
+.wbps-not-last-page {
+  display: none;
+}
+
+/**
+ * wbps-modal
+ */
+.wbps-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto;
+  background-color: #fff;
+  width: 600px;
+  max-width: 75rem;
+  border-radius: 3px;
+  opacity: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh;
+  margin: 20px 0;
+  visibility: hidden;
+  z-index: 99999999;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  backface-visibility: hidden;
+  transform: scale(1.2);
+  transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.wbps-modal .close-wbps-modal {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  right: 15px;
+  opacity: 0;
+  backface-visibility: hidden;
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1), transform 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition-delay: 0.3s;
+}
+
+.wbps-modal-footer {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  z-index: 9999999;
+  align-items: center;
+}
+
+.wbps-modal-footer-text {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  z-index: 9999999;
+  align-items: center;
+  padding: 0 10px;
+}
+.wbps-modal-header {
+  height: 50px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wbps-modal-nav {
+  display: flex;
+  justify-content: space-between;
+  width: fit-content;
+}
+
+.wbps-modal-nav nav {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.wbps-modal-nav nav .wbps-button {
+  border: 1px solid #f6f8fe !important;
+  margin-right: 2px;
+}
+
+.wbps-modal .close-wbps-modal svg {
+  width: 1.75em;
+  height: 1.75em;
+}
+
+.wbps-modal .wbps-modal-content {
+  opacity: 0;
+  backface-visibility: hidden;
+  transition: opacity 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition-delay: 0.3s;
+  height: 100vh;
+}
+
+.wbps-modal.active {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.wbps-modal.active .wbps-modal-content {
+  opacity: 1;
+}
+
+.wbps-modal.active .close-wbps-modal {
+  transform: translateY(10px);
+  opacity: 1;
+}
+
+.wbps-modal-body {
+  padding: 10px 20px;
+}
+.wbps-modal-body-text {
+  padding: 10px 20px;
+  height: 100vh;
+}
+/**
+ * Mobile styling
+ */
+@media only screen and (max-width: 39.9375em) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .wbps-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 0;
+    transform: scale(1.1);
+    padding: 0 !important;
+    margin: 0;
+  }
+
+  .close-wbps-modal {
+    right: 20px !important;
+  }
+
+  .wbps-modal-footer {
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.wbps-collapse-content {
+  max-height: 0;
+  overflow: hidden;
+  width: fit-content;
+  bottom: 55px;
+  background: white;
+  right: 10px;
+  position: absolute;
+  transition: max-height 0.3s ease-in-out;
+  /* Transition for smooth expand/wbps-collapse */
+}
+
+.wbps-collapse-button {
+  cursor: pointer;
+}
+.wbps-collapse-button-text {
+  cursor: pointer;
+  margin-right: 40px;
+}
+.wbps-collapse-content-text {
+  max-height: 0;
+  overflow: hidden;
+  width: fit-content;
+  top: 55px;
+  background: white;
+  right: 10px;
+  position: absolute;
+  transition: max-height 0.3s ease-in-out;
+  /* Transition for smooth expand/wbps-collapse */
+}

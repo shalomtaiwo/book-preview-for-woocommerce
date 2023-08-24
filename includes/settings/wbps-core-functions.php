@@ -129,39 +129,33 @@ function wbps_user_preview_simple()
             include(plugin_dir_path(__FILE__) . '../template/simple/wbps-simple-editor-template-pdf.php');
         } else {
             ?>
-<style>
-.wbps_popup_btn,
-#wbps_fa,
-#wbps_fas {
-    display: none;
-}
-</style>
-<?php
+            <style>
+                .wbps_popup_btn,
+                #wbps_fa,
+                #wbps_fas {
+                    display: none;
+                }
+            </style>
+            <?php
         }
     }
 }
 function front_wbps_button($id, $class)
 {
     ?><button style="background-color:<?php echo esc_attr(get_option("wbps_preview_front_settings_background_color")) ?>;
-        color:<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>; width: fit-content;"
-    id="<?php echo $id . $class ?>"
-    class="wbps_popup_btn <?php echo $class ?> cursor-pointer mb-2 px-2 py-2 rounded border-0" data-bs-toggle="modal"
-    data-bs-target="#wbps_<?php echo $id ?>">
-    <span>
-        <?php echo esc_html(get_option("wbps_preview_front_settings_title")) ?>
-    </span><svg style="margin-top: -2px;" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250">
-        <rect width="25" height="25" fill="none" />
-        <path class="show_wbps_icon_fill"
-            fill="<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>"
-            stroke="<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>" stroke-linecap="round"
-            stroke-linejoin="round" stroke-width="8"
-            d="M228.14833,121.17381,84.1717,33.18517A8,8,0,0,0,72,40.01136V215.98864a8,8,0,0,0,12.1717,6.82619l143.97663-87.98864A8,8,0,0,0,228.14833,121.17381Z" />
-    </svg>
-</button>
-<script type="text/javascript">
-var wpbp_txt_input = document.getElementById('<?php echo $class ?>');
-if (wpbp_txt_input?.value.length === 0)
-    wpbp_txt_input?.value = "Preview";
-</script>
-<?php
+        color:<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>;"
+        id="<?php echo $id .' ' . $class ?>" class="wbps_popup_btn <?php echo $class ?> wbps-button"
+        >
+        <span>
+            <?php echo esc_html(get_option("wbps_preview_front_settings_title")) ?>
+        </span><svg style="margin-top: -2px;" width="15px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250">
+            <rect width="25" height="25" fill="none" />
+            <path class="show_wbps_icon_fill"
+                fill="<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>"
+                stroke="<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="8"
+                d="M228.14833,121.17381,84.1717,33.18517A8,8,0,0,0,72,40.01136V215.98864a8,8,0,0,0,12.1717,6.82619l143.97663-87.98864A8,8,0,0,0,228.14833,121.17381Z" />
+        </svg>
+    </button>
+    <?php
 }

@@ -10,8 +10,7 @@
         <button onclick="wbpsCopyIt()" type='button' class="wbpsCopyBtn">COPY SHORTCODE</button>
     </div>
     <div class="wbps-notice">
-        <div class="wbps-note-important"><b>Note: You can only display one PDF preview on a single page!</b></div>
-        <div class="wbps-note-note"><b>You can display multiple Text previews on any page.</b></div>
+        <div class="wbps-note-important"><b>Note: You can only display one preview shortcode on a single page!</b></div>
     </div>
     <script>
         let wbpsCopyBtn = document.querySelector(".wbpsCopyBtn");
