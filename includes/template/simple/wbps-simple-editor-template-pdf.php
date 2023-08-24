@@ -1,53 +1,85 @@
 <?php
-if ( ! defined( 'WPINC' ) ) {die;} // end if
+if (!defined('WPINC')) {
+    die;
+} // end if
 ?>
 
-<div id="wbps_simple_popup_pdf" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-dialog-scrollable modal-fullscreen-md-down">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="d-flex justify-content-between w-100">
-                <div id="pdfModalLabel" class="modal-title">
+<!-- wbps-modal -->
+<div class="wbps-modal-overlay" id="wbps_<?php echo $product->get_id(); ?>" aria-labelledby="pdfModalLabel" dir="ltr">
+    <div class="wbps-modal">
+        <!-- close wbps-modal -->
+
+        <div class="wbps-modal-content">
+            <div class="wbps-modal-header">
+                <div id="pdfModalLabel" class="wbps-modal-title" style="font-size: 18px; font-weight: 500;">
                     <?php
                     $wbps_string = $product->get_title();
                     // Trimming length of string
-                    $new_wbps_string = mb_strimwidth($wbps_string, 0, 29, "...");
+                    $new_wbps_string = mb_strimwidth($wbps_string, 0, 20, "...");
                     echo esc_html($new_wbps_string); ?>
                 </div>
-                <nav class="nav">
-                    <a class="border rounded btn-dark btn-sm text-light" id="wbpsPrev" style="cursor:pointer;">prev</a>
-                    <a style="cursor:pointer;" class="text-light border rounded btn-dark btn-sm" id="wbpsNext">next</a>
-                </nav>
+                <div class="wbps-modal-nav">
+                    <nav class="nav">
+                        <a class="wbps-button" id="wbpsPrev" style="cursor:pointer; color: black;">prev</a>
+                        <a style="cursor:pointer; color: black;" class="wbps-button" id="wbpsNext">next</a>
+                    </nav>
+                    <a class="close-wbps-modal">
+                        <svg viewBox="0 0 20 20">
+                            <path fill="#000000"
+                                d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
             </div>
-            <svg class="close_button" style="cursor: pointer; height: 25px;" data-bs-dismiss="modal" aria-label="Close" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M13.4,12l6.3-6.3c0.4-0.4,0.4-1,0-1.4c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0c-0.4,0.4-0.4,1,0,1.4
-	l6.3,6.3l-6.3,6.3C4.1,18.5,4,18.7,4,19c0,0.6,0.4,1,1,1c0.3,0,0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.4,0.3,0.7,0.3
-	s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L13.4,12z"/></svg>
-            </div>
-            <div class="modal-body">
-                <?php
- if ((!empty($wbps_preview_pdf_link))) {
-    include plugin_dir_path(__FILE__) . 'pdfSettings/wbpsWooPdfViewer.php';
- } ?>
-    </div>
-            <div class="modal-footer h-10 d-flex justify-content-between">
-            <div class="pages text-center">
-                <span class="mr-2">Page </span>
-                <span id="wbpsCurrentPage">0</span>
-                <span class="mx-1">/</span>
-                <span id="wbpsTotalPages">0</span>
-            </div>
-            <a id="aboutBtn" class="btn-dark btn-sm text-light" data-bs-toggle="collapse" data-bs-target="#collapseAuthorDetails" aria-expanded="false" aria-controls="collapseAuthorDetails">About</a>
-<div class="collapse" id="collapseAuthorDetails">
-<div class="card card-body">
-                <div><b>Published: </b> <?php if (!empty(esc_html($wbps_preview_woo_year))) {
-                        echo esc_html($wbps_preview_woo_year);
-                    } ?></div>
-                <div><b>Author: </b> <?php if (!empty(esc_html($wbps_preview_woo_author))) {
-                        echo esc_html($wbps_preview_woo_author);
-                    } ?></div>
+            <div class="wbps-modal-body">
+                <div id="wbpsAlert" role="alert" class="wbps-not-last-page">
+                    <h4>Preview ended</h4>
+                    <div>
+                        <p>
+                            You have reached the end of the preview. Purchase now!
+                        </p>
                     </div>
+                </div>
+                <?php
+                if ((!empty($wbps_preview_pdf_link))) {
+                    try {
+                        require_once plugin_dir_path(__FILE__) . 'pdfSettings/wbpsWooPdfViewer.php';
+                    } catch (\Throwable $th) {
+                        echo 'Error loading pdf';
+                    }
+                }
+                ?>
+            </div>
+            <div class="wbps-modal-footer">
+                <div class="pages text-center" style="margin: 10px;">
+                    <span class="mr-2">Page </span>
+                    <span id="wbpsCurrentPage">0</span>
+                    <span class="mx-1">/</span>
+                    <span id="wbpsTotalPages">0</span>
+                </div>
+
+                <div class="collapse-container" style="margin: 10px;">
+                    <button class="collapse-button wbps-button" id="wbps-collapseBtn" style="background-color:<?php echo esc_attr(get_option("wbps_preview_front_settings_background_color")) ?>;
+        color:<?php echo esc_attr(get_option("wbps_preview_front_settings_text_color")) ?>;font-size: 13px;">About</button>
+                    <div class="wbps-collapse-content" id="wbps-collapseContent">
+                        <!-- Content you want to collapse/expand -->
+                        <div class="wbps-card">
+                            <div><b>Published: </b>
+                                <?php if (!empty(esc_html($wbps_preview_woo_year))) {
+                                    echo esc_html($wbps_preview_woo_year);
+                                } ?>
+                            </div>
+                            <div><b>Author: </b>
+                                <?php if (!empty(esc_html($wbps_preview_woo_author))) {
+                                    echo esc_html($wbps_preview_woo_author);
+                                } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-                </div>
-</div>
-</div>
+
+    </div><!-- wbps-modal -->
+</div><!-- overlay -->
