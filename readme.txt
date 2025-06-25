@@ -3,9 +3,9 @@ Contributors: shalomt
 Tags: woocommerce,books,book,ebook,book preview,previews,ebook previews,ecommerce preview,author,publisher
 Donate link: https://www.paypal.com/donate/?hosted_button_id=MVUL7FZ88ARHJ
 Requires at least: 5.8.2
-Tested up to: 6.3
+Tested up to: 6.8.1
 Requires PHP: 5.7
-Stable tag: 3.2.0
+Stable tag: 3.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,20 +38,20 @@ Please check this list to see which category this issue falls under.
 *  Did you select PDF in the selected product? Initially each product is set to \"Do not Show\" so select the PDF option and save your Changes
 *  Is your browser compatible? Did you add an alternative text-based preview for incompatible browsers.
 
-Done all that and still not showing up? Please send a request on https://wpbpreview.com/home/contact/ for further assistance and I\'ll be happy to assist you the best I can.
+Done all that and still not showing up? Please send a request on https://reavdev.com/book-preview/contact/ for further assistance and I\'ll be happy to assist you the best I can.
 
 = I am struggling to set it up =
-Please see our interactive demo here: https://wpbpreview.com/home/#demo
+Please see our interactive demo here: https://reavdev.com/book-preview/shop/
 
 = Can I submit a feature request? =
-Indeed! Please submit a feature request here: https://wpbpreview.com/home/contact/
+Indeed! Please submit a feature request here: https://reavdev.com/book-preview/contact/
 
 = What about Page editor compatibility? =
 Plugin is not compatible with Block Editor
 
 = Is this compatible with my theme? =
 The Book Preview plugin is compatible with a lot of themes.
-Should your theme have a compatibility issue, please send a request on https://wpbpreview.com/home/contact/
+Should your theme have a compatibility issue, please send a request on https://reavdev.com/book-preview/contact/
 However, some theme compatibility in most cases is as a result of a theme not following WP theme standards. And while some theme conflicts cannot be resolved, some can be resolved.
 This plugin has been tested to avoid as much conflict with themes and other plugins as much as possible.
 
@@ -63,6 +63,14 @@ This plugin has been tested to avoid as much conflict with themes and other plug
 
 
 == Changelog ==
+
+= 3.3.0 =
+* New: Fullscreen option for book preview popup
+* New: Purchase alert feature for PDF previews (customizable message and button)
+* Enhancement: Modernized and grouped settings page for better usability
+* Enhancement: Improved modal and icon UI/UX
+* WordPress compatibility
+* 
 
 = 3.2.0 =
 * Fix PDF rtl view

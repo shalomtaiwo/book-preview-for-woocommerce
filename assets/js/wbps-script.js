@@ -46,3 +46,40 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+	const fullscreenBtn = document.getElementById("wbps-fullscreenBtn");
+	const modal = document.querySelector(".wbps-modal");
+	const fullscreenIcon = document.getElementById("wbps-fullscreen-icon");
+	const resizeIcon = document.getElementById("wbps-resize-icon");
+	if (fullscreenBtn && modal) {
+		fullscreenBtn.addEventListener("click", function () {
+			if (!document.fullscreenElement) {
+				if (modal.requestFullscreen) {
+					modal.requestFullscreen();
+				} else if (modal.webkitRequestFullscreen) { /* Safari */
+					modal.webkitRequestFullscreen();
+				} else if (modal.msRequestFullscreen) { /* IE11 */
+					modal.msRequestFullscreen();
+				}
+			} else {
+				if (document.exitFullscreen) {
+					document.exitFullscreen();
+				} else if (document.webkitExitFullscreen) { /* Safari */
+					document.webkitExitFullscreen();
+				} else if (document.msExitFullscreen) { /* IE11 */
+					document.msExitFullscreen();
+				}
+			}
+		});
+		document.addEventListener("fullscreenchange", function () {
+			if (document.fullscreenElement === modal) {
+				if (fullscreenIcon) fullscreenIcon.style.display = "none";
+				if (resizeIcon) resizeIcon.style.display = "inline";
+			} else {
+				if (fullscreenIcon) fullscreenIcon.style.display = "inline";
+				if (resizeIcon) resizeIcon.style.display = "none";
+			}
+		});
+	}
+});
