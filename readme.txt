@@ -70,7 +70,6 @@ This plugin has been tested to avoid as much conflict with themes and other plug
 * Enhancement: Modernized and grouped settings page for better usability
 * Enhancement: Improved modal and icon UI/UX
 * WordPress compatibility
-* 
 
 = 3.2.0 =
 * Fix PDF rtl view
