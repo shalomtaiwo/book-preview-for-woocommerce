@@ -23,7 +23,7 @@ function wbps_preview_front_settings_all_settings() {
 			'section_title' => array(
 				'name' => __('Book Preview Settings', 'wpbpreview'),
 				'type' => 'title',
-				'desc' => __( '<p class="wbps_settings_info" style="color: black; background-color: #bfe7f5; padding: 10px;">Need to help? <span id="wbps_contact_section_sht" style="display: flex; flex-direction: row;"><button class="btn_wbps_Section" style="margin: 5px; background-color: black; color: white; padding: 5px; border: 0; border-radius: 5px; cursor: pointer;"><a href="https://reavdev.com/book-preview/support" target="_blank" style="text-decoration:none; color:white;" class="btn_wbps_link">Get Help</a></button></span></p>', 'wpbpreview'),
+				'desc' => __( '<p class="wbps_settings_info" style="color: black; background-color: #bfe7f5; padding: 10px;">Need to help? <span id="wbps_contact_section_sht" style="display: flex; flex-direction: row;"><button class="btn_wbps_Section" style="margin: 5px; background-color: black; color: white; padding: 5px; border: 0; border-radius: 5px; cursor: pointer;"><a href="https://reavdev.com/book-preview/contact" target="_blank" style="text-decoration:none; color:white;" class="btn_wbps_link">Get Help</a></button></span></p>', 'wpbpreview'),
 				'id' => 'wbps_preview_front_settings'
 			),
 

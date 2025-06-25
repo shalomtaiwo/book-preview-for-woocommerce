@@ -1,7 +1,7 @@
 <?php 
 /*
 Plugin Name: Book Preview for WooCommerce
-Plugin URI: https://wpbpreview.com/home/
+Plugin URI: https://reavdev.com/book-preview
 Description: With Book Preview, show your customers a PDF or text-based preview of your books to increase your conversion rate and get more sales while selling with woocommerce
 Requires at least: 5.8.2
 Requires PHP: 5.7
