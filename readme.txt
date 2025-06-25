@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/donate/?hosted_button_id=MVUL7FZ88ARHJ
 Requires at least: 5.8.2
 Tested up to: 6.8.1
 Requires PHP: 5.7
-Stable tag: 3.3.0
+Stable tag: 3.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,10 @@ This plugin has been tested to avoid as much conflict with themes and other plug
 
 
 == Changelog ==
+
+= 3.3.1 =
+* Buttons uses selected colors for improved consistency
+* Fullscreen button added next to About button in the simple editor
 
 = 3.3.0 =
 * New: Fullscreen option for book preview popup

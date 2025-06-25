@@ -141,9 +141,7 @@
             transition: max-height .2s ease-in-out
         }
     </style>
-    <p style="color: black; background-color: #bfe7f5; padding: 5px; width: 70px;"><a
-            href="https://wpbpreview.com/home/contact/" target="_blank"
-            style="text-decoration: none; color: black;">Need Help?</a></p>
+
     <div class="wbps_accordion">Text Editor</div>
     <div class="wbps_accordion-content">
         <div id="wb_tab_wbps_txteditor" class="wbps_tab_content">

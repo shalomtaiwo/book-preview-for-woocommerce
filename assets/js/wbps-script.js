@@ -26,6 +26,17 @@ jQuery(function (o) {
 			d.stopPropagation();
 			jQuery("body").removeClass("overflow-hidden");
 			jQuery("html").removeClass("overflow-hidden");
+			// Exit fullscreen if modal is in fullscreen
+			var modal = document.querySelector('.wbps-modal');
+			if (document.fullscreenElement === modal) {
+				if (document.exitFullscreen) {
+					document.exitFullscreen();
+				} else if (document.webkitExitFullscreen) { /* Safari */
+					document.webkitExitFullscreen();
+				} else if (document.msExitFullscreen) { /* IE11 */
+					document.msExitFullscreen();
+				}
+			}
 		});
 	});
 });
