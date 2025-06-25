@@ -5,7 +5,7 @@ Plugin URI: https://reavdev.com/book-preview
 Description: With Book Preview, show your customers a PDF or text-based preview of your books to increase your conversion rate and get more sales while selling with woocommerce
 Requires at least: 5.8.2
 Requires PHP: 5.7
-Version: 3.3.1
+Version: 3.3.2
 Author: Shalomt
 Author URI: https://shalomt.com/
 License: GPLv2 or later

@@ -274,6 +274,7 @@
   box-shadow: 0 2px 8px rgba(255, 193, 7, 0.06);
   max-width: 340px;
   justify-content: flex-start;
+  margin-bottom: 20px;
 }
 #wbpsAlert.wbps-last-page .alert-icon {
   min-width: 32px;

@@ -57,33 +57,12 @@ if (!defined('WPINC')) {
                                     <?php echo esc_html($purchase_button_text); ?>
                                 </button>
                             <?php else: ?>
-                                <button class="modern-preview-end-btn" id="wbpsAddToCartBtn" onclick="wbpsAddToCart(<?php echo esc_js($product_id); ?>)">
-                                    <?php echo esc_html($purchase_button_text); ?>
-                                </button>
-                                <div id="wbpsAddToCartMsg" style="display:none; color: #388e3c; font-weight: 600; margin-top: 10px; text-align: center;">Added to cart!</div>
-                                <script>
-                                function wbpsAddToCart(productId) {
-                                    if (!productId) return;
-                                    var btn = document.getElementById('wbpsAddToCartBtn');
-                                    var msg = document.getElementById('wbpsAddToCartMsg');
-                                    btn.disabled = true;
-                                    fetch('/?wc-ajax=add_to_cart', {
-                                        method: 'POST',
-                                        credentials: 'same-origin',
-                                        headers: {
-                                            'Content-Type': 'application/x-www-form-urlencoded'
-                                        },
-                                        body: 'product_id=' + encodeURIComponent(productId) + '&quantity=1'
-                                    })
-                                    .then(response => response.json())
-                                    .then(function(response) {
-                                        btn.disabled = false;
-                                        if (msg) {
-                                            msg.style.display = 'block';
-                                        }
-                                    });
-                                }
-                                </script>
+                                <form method="post" action="<?php echo esc_url(add_query_arg('add-to-cart', $product_id)); ?>" style="display:inline;">
+                                    <input type="hidden" name="product_id" value="<?php echo esc_attr($product_id); ?>" />
+                                    <button type="submit" class="modern-preview-end-btn">
+                                        <?php echo esc_html($purchase_button_text); ?>
+                                    </button>
+                                </form>
                             <?php endif; ?>
                         </div>
                         </div>
